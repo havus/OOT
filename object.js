@@ -1,8 +1,26 @@
 let arr = ['a', 'b', 'c', 'd', 'e'];
-let num = '123';
+let obj = {
+  name: 'hafidz',
+  age: 21,
+  address: {
+    city: 'balikpapan',
+    zipcode: 72111
+  },
+  hobbies: ['makan', 'nonton film']
+};
 
-for (let number of arr) {
-  console.log(number);
+for (let number in obj) {
+  // console.log(obj);
 }
+// obj["tambah lagi"] = 'coba'
+// console.log(obj["address"]["city"]);
 
-// console.log(typeof(num));
+// var car = {}
+// car.color = "red"
+// car.price = 20000000
+// car.owner = {
+// 	name: "Rama"
+// }
+// console.log(car)
+
+
