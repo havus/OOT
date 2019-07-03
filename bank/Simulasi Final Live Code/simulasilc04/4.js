@@ -23,13 +23,47 @@ PADA MASING-MASING TEST CASE SUDAH TERDAPAT RANGE TERBESAR DAN TERKECIL
 */
 
 function missingNum ( arr ) {
-  // Your code here
- 
+  let sortArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] !== ' ') {
+        sortArr.push(arr[i][j]);
+      }
+    }
+  }
+
+  for (let i = 0; i < sortArr.length; i++) {
+    for (let j = i + 1; j < sortArr.length; j++) {
+      if (sortArr[i] > sortArr[j]) {
+        let temp = sortArr[i];
+        sortArr[i] = sortArr[j];
+        sortArr[j] = temp;
+      }
+    }
+  }
+
+  let result = [];
+
+  for (let i = sortArr[0]; i < sortArr[sortArr.length - 1]; i++) {
+    let same = false;
+    for (let j = 0; j < sortArr.length; j++) {
+      if (i == sortArr[j]) {
+        same = true;
+      }
+    }
+
+    if (!same) {
+      result.push(i);
+    }
+  }
+
+  return result;
 }
 
 
 console.log(missingNum([[3,' ', 5], [1,' ', 7], [9,' ',' ']])) // [ 2, 4, 6, 8 ]
-// console.log(missingNum([[ 2,' '], [' ',5]])) // [ 3, 4 ]
-// console.log(missingNum([[11,' ', 13], [17,' ', 19], [' ',16,' ']])) // [ 12, 14, 15, 18 ]
-// console.log(missingNum([[3,' ', 5, 15], [1,' ', 7, 13], [9,' ',' ', 12], [' ', 16,' ',' ']])) // [ 2, 4, 6, 8, 10, 11, 14 ]
-// console.log(missingNum([])) // []
+console.log(missingNum([[ 2,' '], [' ',5]])) // [ 3, 4 ]
+console.log(missingNum([[11,' ', 13], [17,' ', 19], [' ',16,' ']])) // [ 12, 14, 15, 18 ]
+console.log(missingNum([[3,' ', 5, 15], [1,' ', 7, 13], [9,' ',' ', 12], [' ', 16,' ',' ']])) // [ 2, 4, 6, 8, 10, 11, 14 ]
+console.log(missingNum([])) // []

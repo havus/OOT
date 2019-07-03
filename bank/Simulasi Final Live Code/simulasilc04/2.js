@@ -37,8 +37,34 @@ DISPLAY 'output'
 
 
 function sensorSentence ( sentence, words ) {
-  // Your code here
- 
+  let sentenceArr = [];
+  let result = '';
+  let temp = '';
+  
+  for (let i = 0; i < sentence.length; i++) {
+    if (sentence[i] !== ' ') {
+      temp += sentence[i];
+    }
+    
+    if (sentence[i] === ' ' || i === sentence.length - 1) {
+      sentenceArr.push(temp);
+      temp = '';
+    }
+  }
+
+  for (let i = 0; i < sentenceArr.length; i++) {
+    if (sentenceArr[i] == words) {
+      for (let j = 0; j < sentenceArr[i].length; j++) {
+        temp += '*';
+      }
+      // sentenceArr[i] = temp;
+      result += temp + ' ';
+      continue;
+    }
+    result += sentenceArr[i] + ' ';
+  }
+
+  return result;
 }
 
 

@@ -21,8 +21,7 @@ Output: jumlah bakteri pada hari ke-i
 */
 
 function jumlahBakteri(N, B, i) {
-	// start code here
-
+	
 }
 
 console.log(jumlahBakteri(3, 4, 1));	// 1

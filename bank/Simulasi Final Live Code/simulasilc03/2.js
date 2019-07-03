@@ -51,10 +51,44 @@ RULES
  - DILARANG MENGGUNAKAN built-in function .map, .filter, .reduce
 
 */
+function getPrime(num) {
+  let result = num <= 1 ? [] : [2];
+
+  for (let i = 3; i <= num; i++) {
+    let flag = false;
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
+        flag = true;
+        break;
+      }
+    }
+
+    if (!flag) {
+      result.push(i);
+    }
+  }
+
+  return num <= 0 ? [] : result;
+}
 
 function numberPrimeCruncher(input) {
-  // only code here..
-  
+  let arrPrime = getPrime(input);
+  let jumlah = 0;
+
+  for (let i = 0; i < arrPrime.length; i++) {
+    jumlah += arrPrime[i];
+  }
+
+  let mean = jumlah / arrPrime.length;
+  let result = [];
+
+  for (let i = 0; i < arrPrime.length; i++) {
+    if (arrPrime[i] > mean) {
+      result.push(arrPrime[i]);
+    }
+  }
+
+  return result;
 }
 
 console.log(numberPrimeCruncher(10)); // [ 5, 7 ]

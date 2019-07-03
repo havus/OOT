@@ -57,10 +57,36 @@ RULE:
 */
 
 function getUglyNumber(num) {
+  let result = [];
+  
+  for (let i = 2; i <= num; i++) {
+    let numNow = i;
+    let ugly = false;
 
+    if (numNow % 2 == 0) {
+      numNow /= 2;
+      ugly = true;
+    }
+
+    if (numNow % 3 == 0 && ugly) {
+      numNow /= 3;
+      ugly = true;
+    } 
+
+    if (numNow / 5 === 1) {
+      ugly = true;
+    }
+
+    if (ugly) {
+      result.push(i);
+    }
+    
+  }
+
+  return result;
 }
 
 console.log(getUglyNumber(10)); //[ 2, 3, 4, 5, 6, 8, 9, 10 ]
-// console.log(getUglyNumber(20)); //[ 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20 ]
-// console.log(getUglyNumber(4)); //[ 2, 3, 4]
-// console.log(getUglyNumber(1)); //[]
+console.log(getUglyNumber(20)); //[ 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20 ]
+console.log(getUglyNumber(4)); //[ 2, 3, 4]
+console.log(getUglyNumber(1)); //[]

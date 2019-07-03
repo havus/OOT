@@ -30,7 +30,31 @@ RULES:
 */
 
 function virusCheckRecursive (str, viruses) {
-  // your code here
+  if (str.length === 0 || viruses === undefined) {
+    return "There is no virus"
+  } 
+
+  let strLow = str.toLowerCase();
+  let virusLow = viruses.toLowerCase().split('|');
+  let flag = false;
+  for (let i = 0; i < virusLow.length; i++) {
+    if (strLow[0] === virusLow[i]) {
+      flag = true;
+      break;
+    }
+  }
+  
+  if (strLow.length === 1 && flag) {
+    return 1;
+  } else if (strLow.length === 1 && !flag) {
+    return 0;
+  }
+  
+  if (strLow.length > 1 && flag) {
+    return 1 + virusCheckRecursive(str.slice(1), viruses);
+  } else if (strLow.length > 1 && !flag) {
+    return 0 + virusCheckRecursive(str.slice(1), viruses);
+  }
 }
 
 console.log(virusCheckRecursive('qlD4MZax0raQqew', 'x|0|q')); // 5

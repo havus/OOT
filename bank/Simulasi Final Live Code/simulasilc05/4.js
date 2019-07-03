@@ -24,7 +24,30 @@ output: ['dont', 'know', 'what', 'have', 'lose']
 */
 
 function averageLengthWord(words) {
- 
+  let str = '';
+  let wordArr = [];
+  let temp = '';
+  let result = [];
+
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] !== ' ') {
+      str += words[i];
+      temp += words[i];
+    }
+    
+    if (words[i] == ' ' || i == words.length - 1) {
+      wordArr.push(temp);
+      temp = '';
+    }
+  }
+
+  for (let i = 0; i < wordArr.length; i++) {
+    if (wordArr[i].length === Math.round(str.length/wordArr.length)) {
+      result.push(wordArr[i]);
+    }
+  }
+
+  return result;
 }
 
 console.log(averageLengthWord('Do you want to become a great coder ?')); // ['you']

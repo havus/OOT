@@ -27,7 +27,19 @@ output: [[0], [0]]
 */
 
 function addEvenOdd (arrNum) {
+  let result = [];
+  let genap = 0;
+  let ganjil = 0;
+  for (let i = 0; i < arrNum.length; i++) {
+    if (arrNum[i] % 2 == 0) {
+      genap += arrNum[i];
+    } else {
+      ganjil += arrNum[i];
+    }
+  }
+  result.push([ganjil], [genap]);
 
+  return result;
 }
 
 console.log(addEvenOdd([3, 5, 7, 8])); // [ [15], [8] ]

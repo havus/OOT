@@ -22,10 +22,16 @@ RULES:
 */
  
 function arrayRemover (array, index, count) {
-  // your code here
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (i < index || i >= index + count) {
+      result.push(array[i]);
+    }
+  }
 
+  return result;
 }
 
 console.log(arrayRemover([ 1, 2, 3] , 0 , 2 )); // [3]
- console.log(arrayRemover([ 666, 666, 333, 10, 5, 6] , 1 , 2 )); // [ 666, 10, 5, 6 ]
+console.log(arrayRemover([ 666, 666, 333, 10, 5, 6] , 1 , 2 )); // [ 666, 10, 5, 6 ]
 console.log(arrayRemover([ 1, 2, 3], 0, 3)) // []

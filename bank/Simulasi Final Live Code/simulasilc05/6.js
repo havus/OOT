@@ -14,7 +14,7 @@ RULES
 */
 
 function angkaTerbesar(sentence) {
-
+  
 }
 
 // TEST CASES

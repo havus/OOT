@@ -39,8 +39,27 @@ RULE:
 */
 
 function howManyGifts(maxBudget, gifts){
-  // Code here
+  for (let i = 0; i < gifts.length; i++) {
+    for (let j = i + 1; j < gifts.length; j++) {
+      if (gifts[i] > gifts[j]) {
+        let temp = gifts[i];
+        gifts[i] = gifts[j];
+        gifts[j] = temp;
+      }
+    }
+  }
 
+  let result = 0;
+  for (let i = 0; i < gifts.length; i++) {
+    if (maxBudget - gifts[i] >= 0) {
+      maxBudget -= gifts[i];
+      result += 1;
+    } else {
+      break;
+    }
+  }
+
+  return result;
 }
 
 console.log(howManyGifts(30000, [15000, 12000, 5000, 3000, 10000])); // 4

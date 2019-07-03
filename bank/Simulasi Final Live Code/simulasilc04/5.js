@@ -34,8 +34,7 @@
 */
 
 function ganjilGenapAsianGames ( date, data ) {
-  // Your code here
-  
+    
 }
 
 

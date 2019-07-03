@@ -41,7 +41,31 @@ Urutan satuan waktu dari terbesar ke terkecil:
 */
 
 function formatDuration(seconds) {
+  let detik = seconds % 60;
+  let menit = ((seconds - detik) / 60) % 60;
+  let jam = parseInt((seconds - detik) / 60 / 60) % 24;
+  let hari = parseInt((seconds - detik) / 60 / 60 / 24) % 24;
+  let tahun = parseInt((seconds - detik) / 60 / 60 / 24 / 365);
+  let result = [tahun + ' tahun', hari + ' hari', jam + ' jam', menit + ' menit', detik + ' detik'];
+  let str = '';
 
+  let strArr = [];
+
+  for (let i = 0; i < result.length; i++) {
+    if (Number(result[i][0]) > 0) {
+      strArr.push(result[i]);
+    }
+  }
+
+  for (let i = 0; i < strArr.length; i++) {
+    if (i == strArr.length - 1) {
+      str += 'dan ' + strArr[i];
+    } else {
+      str += strArr[i] + ' ';
+    }
+  }
+
+  return seconds === 0 ? 'sekarang' : str;
 }
 
 console.log(formatDuration(10000)); // 2 jam, 46 menit dan 40 detik

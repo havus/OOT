@@ -24,12 +24,23 @@ Pisahkan nama yang depannya B, dan nama yang depannya J. Masukkan ke object berd
 }
 
 [CONSTRAINTS]
+
 Dilarang menggunakan sintaks Set atau Regex
 
 */
 
 function initialObjectGrouping(studentsArr) {
-  
+  let result = {};
+
+  for (let i = 0; i < studentsArr.length; i++) {
+    if (!result[studentsArr[i][0]]) {
+      result[studentsArr[i][0]] = [studentsArr[i]];
+      continue;
+    }
+    result[studentsArr[i][0]].push(studentsArr[i]);
+  }
+
+  return result;
 }
 
 
@@ -62,3 +73,19 @@ console.log(initialObjectGrouping(['Rock', 'Stone', 'Brick', 'Rocker', 'Sticker'
 
 
 */
+
+
+
+
+// let ada = false;
+// for (let key in result) {
+//   // console.log(key, ' ', studentsArr[i][0]);
+//   if (studentsArr[i][0] == key) {
+//     result[key].push(studentsArr[i]);
+//     ada = true;
+//   }
+// }
+
+// if (!ada) {
+//   result[studentsArr[i][0]] = [studentsArr[i]];
+// }

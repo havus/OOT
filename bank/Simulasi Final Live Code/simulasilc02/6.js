@@ -16,7 +16,15 @@ RULES
 
 
 function palindromeRecursive(sentence) {
-
+  if (sentence[0] !== sentence[sentence.length - 1]) {
+    return false;
+  } else {
+    let potong = sentence.slice(1, -1);
+    let sama = palindromeRecursive(potong);
+    if (sama) {
+      return true;
+    }
+  }
 }
 
 // TEST CASES

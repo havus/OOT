@@ -48,7 +48,21 @@ WHILE i < 8
 */
 
 function getPrime(num) {
-  // your code here
+  let result = [];
+  for (let i = 2; i <= num; i++) {
+    let prime = false;
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
+        prime = true;
+      }
+    }
+
+    if (!prime) {
+      result.push(i);
+    }
+  }
+
+  return result;
 }
 
 console.log(getPrime(10)); // [ 2, 3, 5, 7 ]

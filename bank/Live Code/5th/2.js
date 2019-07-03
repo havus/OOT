@@ -45,8 +45,35 @@
  */
 
 function oeprasiMatriks(arr1, arr2, operator) {
-  //your code here
-  
+  let result = [];
+  let num1 = 0;
+  let num2 = 0;
+
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr1[i].length; j++) {
+      num1 += 1;
+    }
+
+    for (let j = 0; j < arr2[i].length; j++) {
+      num2 += 1;
+    }
+  }
+
+  if (arr1.length !== arr2.length || num1 !== num2) {
+    return 'kedua matriks tidak dapat diperasikan';
+  }
+
+
+  for (let i = 0; i < arr1.length; i++) {
+    let temp = [];
+    for (let j = 0; j < arr1[i].length; j++) {
+      temp.push(arr1[i][j] + arr2[i][j]);
+    }
+    result.push(temp)
+  }
+
+  return result;
+
 }
 
 console.log(oeprasiMatriks([
@@ -57,7 +84,7 @@ console.log(oeprasiMatriks([
   [5, 4, 8],
   [1, 9, 3],
   [8, 2, 2]
-], "-")); // [ [ 10, 8, 15 ], [ 4, 18, 6 ], [ 16, 5, 4 ] ]
+], "+")); // [ [ 10, 8, 15 ], [ 4, 18, 6 ], [ 16, 5, 4 ] ]
 
 console.log(oeprasiMatriks([
   [5, 4, 7],

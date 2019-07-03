@@ -27,9 +27,27 @@ RULES:
 */
 
 function initialGroupingDescending(studentsArr) {
+  let result = [];
+  // let temp = [];
+  for (let i = 0; i < studentsArr.length; i++) {
+    let same = false;
+    let ind;
+    for (let j = 0; j < result.length; j++) {
+      if (result[j][0] == studentsArr[i][0]) {
+        same = true;
+        ind = j;
+      }
+    }
 
-  // Only Code Here
+    if (!same) {
+      let temp = [studentsArr[i][0], studentsArr[i]];
+      result.push(temp);
+    } else {
+      result[ind].push(studentsArr[i]);
+    }
+  }
 
+  return result;
 }
 
 console.log(initialGroupingDescending(['Budi', 'Badu', 'Joni', 'Jono']));

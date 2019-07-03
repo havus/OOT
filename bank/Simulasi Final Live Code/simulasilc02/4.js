@@ -24,7 +24,27 @@ output: ['dont', 'know', 'what', 'have', 'lose']
 */
 
 function averageLengthWord(words) {
-  
+  let kata = words.split(' ');
+  let jumlah = 0;
+  let spasi = 1;
+  let result = [];
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] !== ' ') {
+      jumlah += 1;
+    } else {
+      spasi += 1;
+    }
+  }
+
+  let mean = Math.round(jumlah / spasi);
+
+  for (let i = 0; i < kata.length; i++) {
+    if (kata[i].length == mean) {
+      result.push(kata[i]);
+    }
+  }
+
+  return result;
 }
 
 console.log(averageLengthWord('dd dddd dddddd dddddddd'));

@@ -26,8 +26,25 @@
 
 */
 function encrypt(input) {
-  // your code here
-  
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  let kamus = '!@#$%^&*()-+1234567890[]{}';
+  let result = '';
+
+  for (let i = 0; i < input.length; i++) {
+    let flag = false;
+    for (let j = 0; j < alphabet.length; j++) {
+      if (input[i] == alphabet[j]) {
+        result += kamus[j];
+        flag = true;
+      }
+    }
+
+    if (!flag) {
+      result += input[i];
+    }
+  }
+
+  return result;
 }
 
 console.log(encrypt('dimitri')) // $(1(86(

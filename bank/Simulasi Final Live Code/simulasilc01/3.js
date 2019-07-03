@@ -34,7 +34,38 @@ RULE:
 */
 
 function minDistanceBetweenGreatest(arr) {
-  // your code here
+  let highNum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (highNum < arr[i]) {
+      highNum = arr[i];
+    }
+  }
+  let total = [];
+  let langkah = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == highNum) {
+      total.push(i);
+    }
+  }
+
+  if (total.length === arr.length) {
+    return 1;
+  } else if (total.length == 1) {
+    return 0;
+  }
+
+  for (let i = 1; i < total.length; i++) {
+    langkah.push(total[i] - total[i - 1]);
+  }
+
+  let low = arr.length;
+  for (let i = 0; i < langkah.length; i++) {
+    if (low > langkah[i]) {
+      low = langkah[i];
+    }
+  }
+
+  return low;
 }
 
 console.log(minDistanceBetweenGreatest([ 3, 5, 2, 3, 5, 3, 5 ])); //2

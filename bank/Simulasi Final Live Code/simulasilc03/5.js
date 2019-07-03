@@ -22,8 +22,19 @@ CONSTRAINTS
 */
 
 function deleteUndefinedKeys(data) {
-  // Code here
+  let result = [];
   
+  for (let i = 0; i < data.length; i++) {
+    let obj = {};
+    for (let key in data[i]) {
+      if (data[i][key] !== undefined) {
+        obj[key] = data[i][key];
+      }
+    }
+    result.push(obj);
+  }
+
+  return result
 }
 
 console.log(deleteUndefinedKeys([{
@@ -46,29 +57,29 @@ console.log(deleteUndefinedKeys([{
     { name: 'Alexei', address: 'Earth', age: 18, gender: 'male' } ]
 */
 
-// console.log(deleteUndefinedKeys([
-//   {
-//     band: 'Ghost',
-//     formed: 2006,
-//     members: ['Papa Emeritus', 'Alpha', 'Omega', 'Water', 'Wind', 'Earth'],
-//     genre: 'Heavy Metal',
-//     rating: undefined
-//   },
-//   {
-//     band: 'BABYMETAL',
-//     formed: undefined,
-//     members: ['SU-METAL', 'MOAMETAL', 'YUIMETAL'],
-//     genre: 'Kawaii Metal',
-//     rating: undefined
-//   },
-//   {
-//     band: 'Avatar',
-//     formed: 2006,
-//     members: undefined,
-//     genre: undefined,
-//     rating: 5
-//   }
-// ]));
+console.log(deleteUndefinedKeys([
+  {
+    band: 'Ghost',
+    formed: 2006,
+    members: ['Papa Emeritus', 'Alpha', 'Omega', 'Water', 'Wind', 'Earth'],
+    genre: 'Heavy Metal',
+    rating: undefined
+  },
+  {
+    band: 'BABYMETAL',
+    formed: undefined,
+    members: ['SU-METAL', 'MOAMETAL', 'YUIMETAL'],
+    genre: 'Kawaii Metal',
+    rating: undefined
+  },
+  {
+    band: 'Avatar',
+    formed: 2006,
+    members: undefined,
+    genre: undefined,
+    rating: 5
+  }
+]));
 /*
 [ { band: 'Ghost',
     formed: 2006,
@@ -80,5 +91,5 @@ console.log(deleteUndefinedKeys([{
   { band: 'Avatar', formed: 2006, rating: 5 } ]
 */
 
-// console.log(deleteUndefinedKeys([]));
+console.log(deleteUndefinedKeys([]));
 // No data

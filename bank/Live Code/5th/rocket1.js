@@ -32,7 +32,31 @@ function invokeSpell (input) {
       { q: 2, w: 1, e: 0, spellName: 'Ghost Walk' },
   ];
 
-  // your code here
+  let keyq = 0;
+  let keyw = 0;
+  let keye = 0;
+
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] == 'q') {
+      keyq += 1;
+    } else if (input[i] == 'w') {
+      keyw += 1;
+    } else if (input[i] == 'e') {
+      keye += 1;
+    }
+  }
+
+  let finish = false;
+  for (let i = 0; i < spells.length; i++) {
+    if (spells[i].q === keyq && spells[i].w === keyw && spells[i].e === keye) {
+      finish = true;
+      return spells[i].spellName;
+    }
+    
+    if (i == spells.length - 1 && !finish) {
+      return 'Combination does not exist';
+    }
+  }
  
 }
 

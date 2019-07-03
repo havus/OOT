@@ -15,13 +15,13 @@ Tampilkan kecepatan mobil jika menghadapi tanjakan dengan sudut kemiringan terse
 
 //your alogritma/pseudocode here
 
-STORE "kecepatan" with ANY VALUE (Number)
+// STORE "kecepatan" with ANY VALUE (Number)
 
-IF "kemiringan" equals > 45 && < 50 DO 
-  DISPLAY "kecepatan mobil akan berkurang 25 km/jam" THEN
-ELSE IF "kemiringan" equals > 30 && < 44 DO
-  DISPLAY "kecepatan mobil akan berkurang 15 km/jam" THEN
-ELSE IF "kemiringan" equals > 15 && < 29 DO
-  DISPLAY "kecepatan mobil akan berkurang 10 km/jam" THEN
-ELSE
-  DISPLAY "kecepatan mobil tidak akan berkurang"
+// IF "kemiringan" equals > 45 && < 50 DO 
+//   DISPLAY "kecepatan mobil akan berkurang 25 km/jam" THEN
+// ELSE IF "kemiringan" equals > 30 && < 44 DO
+//   DISPLAY "kecepatan mobil akan berkurang 15 km/jam" THEN
+// ELSE IF "kemiringan" equals > 15 && < 29 DO
+//   DISPLAY "kecepatan mobil akan berkurang 10 km/jam" THEN
+// ELSE
+//   DISPLAY "kecepatan mobil tidak akan berkurang"

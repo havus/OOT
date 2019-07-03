@@ -33,8 +33,24 @@ WHILE length of 'numberStr' greater than 3
 DISPLAY 'output'
 */
 function formatUang(number) {
-  //code here
-  
+  let str = String(number);
+  let result = '';
+  let count = 0;
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    if (count % 3 === 0) {
+      result = str[i] + '.' + result;
+    } else {
+      result = str[i] + result;
+    }
+    count ++;
+  }
+
+  if (result[result.length - 1] === '.') {
+    result = result.slice(0, -1);
+  }
+
+  return 'Rp' + result + ',00';
 }
 
 console.log(formatUang(7500)); // Rp7.500,00

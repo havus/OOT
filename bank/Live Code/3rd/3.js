@@ -42,19 +42,32 @@ output: []
 */
 
 function kali(operand1, operand2) {
-
+  return operand1 * operand2;
 }
 function tambah(operand1, operand2) {
-
+  return operand1 + operand2;
 }
 function kurang(operand1, operand2) {
-
+  return operand1 - operand2;
 }
 function bagi(operand1, operand2) {
-
+  return operand1 / operand2;
 }
 function calculate(arrNumber) {
+  let res = [];
+  for (let i = 0; i < arrNumber.length; i++) {
+    if (arrNumber[i].operator === '*') {
+      res.push(kali(arrNumber[i].operand1, arrNumber[i].operand2));
+    } else if (arrNumber[i].operator === '+') {
+      res.push(tambah(arrNumber[i].operand1, arrNumber[i].operand2));
+    } else if (arrNumber[i].operator === '-') {
+      res.push(kurang(arrNumber[i].operand1, arrNumber[i].operand2));
+    } else if (arrNumber[i].operator === '/') {
+      res.push(bagi(arrNumber[i].operand1, arrNumber[i].operand2));
+    }
+  }
 
+  return res;
 }
 
 console.log(calculate([
@@ -67,5 +80,6 @@ console.log(calculate([
   { operand1: 10, operand2: 5, operator: '/' }, 
   { operand1: 3, operand2: 10, operator: '+'}
 ]));
+//[2, 13]
 
 console.log(calculate([])); //[]

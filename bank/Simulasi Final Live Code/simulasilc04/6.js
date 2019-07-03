@@ -17,8 +17,15 @@ hanya sisa baginya nol dari bilangan num
 */
 
 function dividableRecursive (array, num) {
-
-
+  if (array.length === 0) {
+    return '';
+  }
+  
+  if (array[0] % num !== 0) {
+    return dividableRecursive(array.slice(1), num);
+  } else {
+    return array[0] + ' ' + dividableRecursive(array.slice(1), num);
+  }
 }
 
 // DRIVER CODE

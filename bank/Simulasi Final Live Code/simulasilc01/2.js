@@ -56,7 +56,23 @@ RULE:
 */
 
 function multiplyTheOdds(arrOperand1, arrOperand2) {
-  // your code here
+  let ganjil = [];
+  let result = 0;
+  for (let i = 0; i < arrOperand1.length; i++) {
+    if ((arrOperand1[i] * arrOperand2[i]) % 2 == 1) {
+      ganjil.push(arrOperand1[i] * arrOperand2[i]);
+    }
+  }
+
+  for (let i = 0; i < ganjil.length; i++) {
+    if (result === 0) {
+      result += ganjil[i];
+    } else {
+      result *= ganjil[i];
+    }
+  }
+
+  return result;
 }
 
 console.log(multiplyTheOdds([3, 5, 2], [7, 5, 4])); //525

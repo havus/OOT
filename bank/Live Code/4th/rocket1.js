@@ -28,7 +28,40 @@ Contoh lain ada di test case
 */
 
 function virusPercentage (input) {
+  let result = {};
+  let str = '';
+  let daftar = [];
+  let valueOfOne = 100/input.length;
 
+  for (let i = 0; i < input.length; i++) {
+    let same = false;
+    // let idx = '';
+    for (let key in result) {
+      if (input[i] === key) {
+        same = true;
+        idx = key;
+        result[input[i]] += 1;
+        break;
+      }
+    }
+
+    if (!same) {
+      result[input[i]] = 1;
+      daftar.push(input[i]);
+    }
+  }
+
+  daftar = daftar[daftar.length - 1];
+
+  for (let key in result) {
+    if (key === daftar) {
+      str += ' ' + result[key] * valueOfOne + '% ' + key;
+    } else {
+      str += ' ' + result[key] * valueOfOne + '% ' + key + ',';
+    }
+  }
+
+  return str;
 }
 
 console.log(virusPercentage('**#*##')); // 50% *, 50% #

@@ -29,7 +29,24 @@ Output yang diharapkan adalah Object Literal seperti contoh berikut:
 */
 
 function productCategories(products) {
-  
+  let result = {};
+
+  for (let i = 0; i < products.length; i++) {
+    let same = false;
+    for (let key in result) {
+      if (products[i][2] === key) {
+        same = true;
+        result[products[i][2]] += 1;
+        break;
+      }
+    }
+
+    if (!same) {
+      result[products[i][2]] = 1;
+    }
+  }
+
+  return products.length === 0 ? 'Empty data' : result;
 }
 console.log(productCategories([
   ['Mouse Logitech', 150000, 'Mouse'],

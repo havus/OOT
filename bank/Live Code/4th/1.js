@@ -19,7 +19,16 @@ Contoh input ada di test case.
 */
 
 function dronePosition (grid) {
-  // Code here
+  let result = '';
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[i].length; j++) {
+      if (grid[i][j] === '*') {
+        result += `${i}, ${j}`;
+        break;
+      }
+    }
+  }
+  return result === '' ? 'No drone' : result;
 }
 
 console.log(dronePosition([

@@ -22,7 +22,21 @@ RULES:
 */
 
 function findNotRelative(arr1, arr2) {
-  
+  let result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    let ada = false;
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] == arr2[j]) {
+        ada = true;
+      }
+    }
+
+    if (!ada) {
+      result.push(arr1[i]);
+    }
+  }
+
+  return result;
 }
 
 console.log(findNotRelative([ 3, 6, 10, 12, 15 ], [ 1, 3, 5, 10, 16 ])); // [ 6, 12, 15]
